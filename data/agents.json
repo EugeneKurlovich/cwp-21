@@ -1,0 +1,32 @@
+[
+    {
+      "name": "agent1",
+      "email": "agent1@gmail.com",
+      "tel": "588-437-8207",
+      "officeId": 3
+    },
+    {
+      "name": "agent2",
+      "email": "agent2@gmail.com",
+      "tel": "608-756-4811",
+      "officeId": 1
+    },
+    {
+      "name": "agent3",
+      "email": "agent3@gmail.com",
+      "tel": "464-915-5672",
+      "officeId": 2
+    },
+    {
+      "name": "agent4",
+      "email": "agent4@gmail.com",
+      "tel": "123-112-7920",
+      "officeId": 1
+    },
+    {
+      "name": "agent5",
+      "email": "agent5@gmail.com",
+      "tel": "698-296-5274",
+      "officeId": 1
+    }
+  ]
