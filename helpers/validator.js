@@ -7,15 +7,13 @@ module.exports = (schemaObject, data) => {
     let isValid = true;
     let schema = Joi.object().keys(schemaObject);
 
-    let validationResult = Joi.validate(data, schema, {presence:'optional'});
+    let validationResult = Joi.validate(data, schema);
 
     if (validationResult.error) {
-        errors = validationResult.error.details.reduce((a, b) => a + b.message, "");
-        isValid = false;
+       console.log("ERROR VALIDATION");
     }
-
-    return {
-        isValid,
-        errors
-    };
+    else
+    {
+        return true;
+    }
 };

@@ -1,6 +1,6 @@
 {
   "app": {
-    "port": 9001
+    "port": 3000
   },
   "db": {
     "name": "cwp21db",

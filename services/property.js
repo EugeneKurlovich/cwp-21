@@ -10,22 +10,46 @@ class PropertyService extends CrudService {
         this.schema = schema;
     }
 
+    async ra(data)
+    {
+        return super.readChunk(data);
+    }
+
+    async deleteID(data)
+    {
+        return super.delete(data);
+    }
+
+    async readID(data)
+    {
+        return super.read(data);
+    }
+
     async create(data) {
-
         let validCheck = validator(this.schema, data);
-        if (!validCheck.isValid)
-            throw this.errors.validError(validCheck.errors);
-
-        super.create(data);
+        if (!validCheck)
+        {
+            return false;
+        }
+        else
+        {
+            super.create(data);
+            return true;
+        }  
     }
 
     async update(data) {
 
         let validCheck = validator(this.schema, data);
-        if (!validCheck.isValid)
-            throw this.errors.validError(validCheck.errors);
-
-        return super.update(data.id, data);
+        if (!validCheck)
+        {
+            return false;
+        }
+        else
+        {
+            super.update(data.id, data);
+            return true;
+        }
     }
 
     async addAgent(propId, agentId) {
