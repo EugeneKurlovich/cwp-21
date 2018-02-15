@@ -27,15 +27,9 @@ class CrudService {
 
     async read(id) {
         id = parseInt(id);
-        if (isNaN(id)) {
-            throw this.errors.invalidId;
-        }
-
+     
         const item = await this.repository.findById(id, {raw: true});
 
-        if (!item) {
-            throw this.errors.notFound;
-        }
         return item;
     }
 

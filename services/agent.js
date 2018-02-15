@@ -10,21 +10,31 @@ class AgentService extends CrudService {
         this.schema = schema;
     }
 
+
+    async delId(data)
+    {
+        super.delete(data.id)
+    }
+
+    async readAgents(data)
+    {
+        return super.read(data);
+    }
+
     async create(data) {
 
         let validCheck = validator(this.schema, data);
-        if (!validCheck.isValid)
-            throw this.errors.validError(validCheck.errors);
-
-        super.create(data);
+        if (!validCheck)
+        {
+            console.log("CREATE ERROR");
+        }
+          else
+          {
+            super.create(data);
+          }
     }
 
     async update(data) {
-
-        let validCheck = validator(this.schema, data);
-        if (!validCheck.isValid)
-            throw this.errors.validError(validCheck.errors);
-
         return super.update(data.id, data);
     }
 
@@ -48,7 +58,6 @@ class AgentService extends CrudService {
             limit: Number(options.limit) || this.defaults.readChunk.limit,
             offset: Number(options.offset) || this.defaults.readChunk.offset
         };
-        console.log(options);
         const agent = await this.repository.findById(agentId);
 
         if (!agent) {
