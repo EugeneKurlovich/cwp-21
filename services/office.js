@@ -9,21 +9,26 @@ class OfficeService extends CrudService {
         this.schema = schema;
     }
 
+    async readA(data)
+    {
+        return super.readChunk(data);
+    }
+
+    async readId(id)
+    {
+        return super.read(id);
+    }    
+
+    async del (id)
+    {
+        return super.delete(id);
+    }
+
     async create(data) {
-
-        let validCheck = validator(this.schema, data);
-        if (!validCheck.isValid)
-            throw this.errors.validError(validCheck.errors);
-
         super.create(data);
     }
 
     async update(data) {
-
-        let validCheck = validator(this.schema, data);
-        if (!validCheck.isValid)
-            throw this.errors.validError(validCheck.errors);
-
         return super.update(data.id, data);
     }
 
